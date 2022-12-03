@@ -4,6 +4,7 @@ import Row from "../../Components/Base/Grid/Row"
 import Typography from "../../Components/Base/Typography"
 import PageTitle from "../../Components/PageTitle"
 import { generateTitleOutOfCamelCaseKey } from "../../Helpers/utils"
+import PropTypes from 'prop-types';
 
 export default function CountryDetails({ data, setCountry }) {
   const toDisplayData = ["Country", "CountryCode", "NewConfirmed", "TotalConfirmed", "NewDeaths", "TotalDeaths", "NewRecovered", "TotalRecovered", "Date"]
@@ -33,4 +34,9 @@ export default function CountryDetails({ data, setCountry }) {
       </Row>
     </>
   )
+};
+
+CountryDetails.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  setCountry: PropTypes.func.isRequired,
 };

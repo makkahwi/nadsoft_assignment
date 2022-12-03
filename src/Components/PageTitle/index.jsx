@@ -1,5 +1,6 @@
 import React from "react"
 import Typography from "../Base/Typography";
+import PropTypes from 'prop-types';
 
 export default function PageTitle({ title }) {
   return (
@@ -9,4 +10,8 @@ export default function PageTitle({ title }) {
       </Typography>
     </>
   )
+};
+
+PageTitle.propTypes = {
+  title: PropTypes.string.isRequired,
 };

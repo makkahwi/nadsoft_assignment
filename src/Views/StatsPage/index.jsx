@@ -3,6 +3,7 @@ import Typography from "../../Components/Base/Typography";
 import PageTitle from "../../Components/PageTitle";
 import GlobalStats from "./Global";
 import PerCountryStats from "./PerCountry";
+import PropTypes from 'prop-types';
 
 export default function CountriesList({ setCountry }) {
   return (
@@ -22,4 +23,8 @@ export default function CountriesList({ setCountry }) {
       <PerCountryStats setCountry={setCountry} />
     </>
   )
+};
+
+CountriesList.propTypes = {
+  setCountry: PropTypes.func.isRequired,
 };
