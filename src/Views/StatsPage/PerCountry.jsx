@@ -36,10 +36,10 @@ export default function PerCountryStats({ setCountry }) {
   const [filteredTableData, setFilteredTableData] = useState(countriesTestData);
 
   const tableColumns = [
-    { key: "Country" },
-    { key: "TotalConfirmed" },
-    { key: "TotalDeaths" },
-    { key: "TotalRecovered" },
+    { key: "Country", footer: "Totals" },
+    { key: "TotalConfirmed", generateTotal: true },
+    { key: "TotalDeaths", generateTotal: true },
+    { key: "TotalRecovered", generateTotal: true },
     { title: "Last Updated", key: "Date" },
   ];
 
