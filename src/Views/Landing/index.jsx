@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CountriesList from "../CountriesList";
+import CountriesList from "../StatsPage";
 import CountryDetails from "../CountryDetails";
 
 export default function Landing() {
