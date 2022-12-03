@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Container from '../Components/Base/Container';
+import LoadingIndicator from "../Components/Loading Indicator";
 import routes from "../Routes";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -12,7 +13,7 @@ export default function Layout() {
       <Header />
 
       <Container className="py-5">
-        <Suspense fallback={"Loading"}>
+        <Suspense fallback={<LoadingIndicator />}>
           <Routes>
             {routes?.map((route, i) => {
               return (
