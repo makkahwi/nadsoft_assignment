@@ -2,38 +2,25 @@ import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Typography from "../../Components/Base/Typography";
 import Table from "../../Components/Table";
+import DataAPI from "../../API/summary";
+import { useEffect } from "react";
 
 export default function PerCountryStats({ setCountry }) {
   const [searchValue, setSearchValue] = useState("");
+  const [countriesStats, setCountriesStats] = useState([]);
+  const [filteredTableData, setFilteredTableData] = useState([]);
 
-  const countriesTestData = [
-    {
-      "Country": "Jordan",
-      "CountryCode": "JO",
-      "Slug": "jordan",
-      "NewConfirmed": 13,
-      "TotalConfirmed": 323,
-      "NewDeaths": 0,
-      "TotalDeaths": 5,
-      "NewRecovered": 16,
-      "TotalRecovered": 74,
-      "Date": "2020-04-05T06:37:00Z"
-    },
-    {
-      "Country": "Kenya",
-      "CountryCode": "KE",
-      "Slug": "kenya",
-      "NewConfirmed": 4,
-      "TotalConfirmed": 126,
-      "NewDeaths": 0,
-      "TotalDeaths": 4,
-      "NewRecovered": 0,
-      "TotalRecovered": 4,
-      "Date": "2020-04-05T06:37:00Z"
-    },
-  ];
+  const getData = async () => {
+    await DataAPI.get()
+      .then(res => {
+        setCountriesStats(res.Countries);
+        setFilteredTableData(res.Countries);
+      })
+  };
 
-  const [filteredTableData, setFilteredTableData] = useState(countriesTestData);
+  useEffect(() => {
+    getData();
+  }, [])
 
   const tableColumns = [
     { key: "Country", footer: "Totals" },
@@ -49,9 +36,9 @@ export default function PerCountryStats({ setCountry }) {
     setSearchValue(value);
 
     value.length ? (
-      setFilteredTableData(countriesTestData.filter(record => record.Country.toUpperCase().includes(value.toUpperCase())))
+      setFilteredTableData(countriesStats.filter(record => record.Country.toUpperCase().includes(value.toUpperCase())))
     ) : (
-      setFilteredTableData(countriesTestData)
+      setFilteredTableData(countriesStats)
     );
   };
 
