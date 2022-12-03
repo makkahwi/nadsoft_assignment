@@ -6,7 +6,17 @@ import PageTitle from "../../Components/PageTitle"
 import { generateTitleOutOfCamelCaseKey } from "../../Helpers/utils"
 
 export default function CountryDetails({ data, setCountry }) {
-  const toDisplayData = ["Country", "CountryCode", "NewConfirmed", "TotalConfirmed", "NewDeaths", "TotalDeaths", "NewRecovered", "TotalRecovered", "Date"]
+  const toDisplayData = [
+    "Country",
+    // "CountryCode",
+    "NewConfirmed",
+    "TotalConfirmed",
+    "NewDeaths",
+    "TotalDeaths",
+    "NewRecovered",
+    "TotalRecovered",
+    "Date"
+  ];
 
   return (
     <>
