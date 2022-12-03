@@ -1,8 +1,8 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, useLocation } from 'react-router-dom';
 
+import Container from '../../Components/Base/Container';
+import Nav from '../../Components/Base/Nav';
 import routes from "../../Routes"
 
 export default function Header() {
