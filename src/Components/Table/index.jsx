@@ -111,8 +111,8 @@ export default function TableComp({ columns, data = [], onView, className, ...pr
 }
 
 TableComp.propTypes = {
-  columns: PropTypes.array.isRequired,
-  data: PropTypes.array.isRequired,
+  columns: PropTypes.arrayOf(PropTypes.object).isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
   onView: PropTypes.func,
   className: PropTypes.string,
 };
