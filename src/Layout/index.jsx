@@ -1,10 +1,10 @@
-import React, { Suspense } from "react"
-import Container from 'react-bootstrap/Container';
-import { Navigate, Route, Routes } from 'react-router-dom'
+import React, { Suspense } from "react";
+import { Navigate, Route, Routes } from 'react-router-dom';
 
-import routes from "../Routes"
-import Footer from "./Footer"
-import Header from "./Header"
+import Container from '../Components/Base/Container';
+import routes from "../Routes";
+import Footer from "./Footer";
+import Header from "./Header";
 
 export default function Layout() {
   return (
