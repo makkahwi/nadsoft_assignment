@@ -8,7 +8,7 @@ export default function Landing() {
   return (
     <>
       {country.Country?.length ? (
-        <CountryDetails data={country} />
+        <CountryDetails data={country} setCountry={setCountry} />
       ) : (
         <CountriesList setCountry={setCountry} />
       )}
