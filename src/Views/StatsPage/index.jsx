@@ -1,14 +1,13 @@
 import React from "react";
 import Typography from "../../Components/Base/Typography";
+import PageTitle from "../../Components/PageTitle";
 import GlobalStats from "./Global";
 import PerCountryStats from "./PerCountry";
 
 export default function CountriesList({ setCountry }) {
   return (
     <>
-      <Typography size={4}>
-        Welcome
-      </Typography>
+      <PageTitle title={"Welcome"} />
 
       <Typography size={6}>
         If you wanna know more about this project, you may visit the "About" page
