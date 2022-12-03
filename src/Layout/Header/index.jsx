@@ -21,7 +21,7 @@ export default function Header() {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            {routes?.map((route, i) => (
+            {routes?.filter(route => !route.hideInNavbar)?.map((route, i) => (
               <Link key={i} to={route.path} className={`text-decoration-none m-3 ${isCurrent(route) ? "text-white text-underline" : "text-secondary"}`}>
                 {route.name}
               </Link>

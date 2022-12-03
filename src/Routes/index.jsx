@@ -6,7 +6,7 @@ const About = lazy(() => import('../Views/About'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home', element: Landing },
-  { path: '/details', exact: true, name: 'Country Details', element: Country },
+  { path: '/details', exact: true, name: 'Country Details', element: Country, hideInNavbar: true },
   { path: '/about', exact: true, name: 'About', element: About },
 ];
 
