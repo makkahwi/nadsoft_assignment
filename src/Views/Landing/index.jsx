@@ -53,7 +53,7 @@ export default function Landing() {
     setSearchValue(value);
 
     value.length ? (
-      setFilteredTableData(testData.filter(record => record.Country.includes(value)))
+      setFilteredTableData(testData.filter(record => record.Country.toUpperCase().includes(value.toUpperCase())))
     ) : (
       setFilteredTableData(testData)
     );
