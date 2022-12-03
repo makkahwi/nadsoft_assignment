@@ -4,6 +4,7 @@ import Typography from "../../Components/Base/Typography";
 import Table from "../../Components/Table";
 import DataAPI from "../../API/summary";
 import { useEffect } from "react";
+import PropTypes from 'prop-types';
 
 export default function PerCountryStats({ setCountry }) {
   const [searchValue, setSearchValue] = useState("");
@@ -70,4 +71,8 @@ export default function PerCountryStats({ setCountry }) {
       />
     </div>
   )
+};
+
+PerCountryStats.propTypes = {
+  setCountry: PropTypes.func.isRequired,
 };
