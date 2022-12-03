@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import Table from '../Base/Table';
 
-export default function TableComp({ columns, data, className, ...props }) {
+export default function TableComp({ columns, data, onView, className, ...props }) {
   const generateColumnTitle = key => key?.split("")?.map((letter, i) => i === 0 ? letter : letter === letter.toUpperCase() ? ` ${letter}` : letter).join("")
 
   return (
@@ -13,6 +13,12 @@ export default function TableComp({ columns, data, className, ...props }) {
               {column.title || generateColumnTitle(column.key)}
             </th>
           ))}
+
+          {onView && (
+            <th>
+              Actions
+            </th>
+          )}
         </tr>
       </thead>
 
@@ -25,6 +31,14 @@ export default function TableComp({ columns, data, className, ...props }) {
                   {column.render ? render(record) : record[column.key]}
                 </td>
               ))}
+
+              {onView && (
+                <th>
+                  <span role="button" onClick={() => onView(record)}>
+                    Details
+                  </span>
+                </th>
+              )}
             </tr>
           ))
         ) : (
