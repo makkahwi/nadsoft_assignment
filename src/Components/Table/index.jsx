@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
+import { generateTitleOutOfCamelCaseKey } from '../../Helpers/utils';
 import Table from '../Base/Table';
 
 export default function TableComp({ columns, data, onView, className, ...props }) {
-  const generateColumnTitle = key => key?.split("")?.map((letter, i) => i === 0 ? letter : letter === letter.toUpperCase() ? ` ${letter}` : letter).join("")
   const generateColumnTotal = key => data?.reduce((final, record) => final += record[key], 0);
 
   return (
@@ -11,7 +11,7 @@ export default function TableComp({ columns, data, onView, className, ...props }
         <tr>
           {columns?.map((column, i) => (
             <th key={i}>
-              {column.title || generateColumnTitle(column.key)}
+              {column.title || generateTitleOutOfCamelCaseKey(column.key)}
             </th>
           ))}
 
