@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import Container from '../Components/Base/Container';
+import Container from '../Components/Base/Grid/Container';
 import LoadingIndicator from "../Components/Loading Indicator";
 import routes from "../Routes";
 import Footer from "./Footer";

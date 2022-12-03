@@ -1,5 +1,5 @@
 import Spinner from '../Base/Spinner';
-import Container from '../Base/Container';
+import Container from '../Base/Grid/Container';
 
 export default function LoadingIndicator() {
   return (

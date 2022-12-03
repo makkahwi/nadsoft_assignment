@@ -1,6 +1,6 @@
 import Navbar from 'react-bootstrap/Navbar';
 
-import Container from '../../Components/Base/Container';
+import Container from '../../Components/Base/Grid/Container';
 
 export default function Footer() {
   return (
