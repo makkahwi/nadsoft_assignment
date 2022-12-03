@@ -1,11 +1,8 @@
-import React from "react"
-import { useState } from "react";
+import React, { useState } from "react";
+import Form from 'react-bootstrap/Form';
 import Typography from "../../Components/Base/Typography";
 import Table from "../../Components/Table";
-import Form from 'react-bootstrap/Form';
-import Container from "../../Components/Base/Grid/Container";
-import Row from "../../Components/Base/Grid/Row";
-import Col from "../../Components/Base/Grid/Col";
+import GlobalStats from "./Global";
 
 export default function CountriesList({ setCountry }) {
   const [searchValue, setSearchValue] = useState("");
@@ -36,15 +33,6 @@ export default function CountriesList({ setCountry }) {
       "Date": "2020-04-05T06:37:00Z"
     },
   ];
-
-  const globalTestData = {
-    "NewConfirmed": 100282,
-    "TotalConfirmed": 1162857,
-    "NewDeaths": 5658,
-    "TotalDeaths": 63263,
-    "NewRecovered": 15405,
-    "TotalRecovered": 230845
-  };
 
   const [filteredTableData, setFilteredTableData] = useState(countriesTestData);
 
@@ -89,23 +77,7 @@ export default function CountriesList({ setCountry }) {
         Latest COVID Statistics
       </Typography>
 
-      <Typography size={6}>
-        Global
-      </Typography>
-
-      <Container className="py-4">
-        <Row className="text-center">
-          {Object.keys(globalTestData)?.map((key, i) => (
-            <Col key={i}>
-              <b>
-                {key}
-              </b>
-              <br />
-              {globalTestData[key]}
-            </Col>
-          ))}
-        </Row>
-      </Container>
+      <GlobalStats />
 
       <Typography size={6}>
         Per Country
