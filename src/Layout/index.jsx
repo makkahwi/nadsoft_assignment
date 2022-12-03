@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Container from '../Components/Base/Grid/Container';
 import LoadingIndicator from "../Components/Loading Indicator";
 import routes from "../Routes";
+import ErrorPage from "../Views/Error";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -27,7 +28,7 @@ export default function Layout() {
               )
             })}
 
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Suspense>
       </Container>
