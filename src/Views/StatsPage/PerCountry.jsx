@@ -8,19 +8,19 @@ import { useEffect } from "react";
 export default function PerCountryStats({ setCountry }) {
   const [searchValue, setSearchValue] = useState("");
   const [countriesStats, setCountriesStats] = useState([]);
+  const [filteredTableData, setFilteredTableData] = useState([]);
 
   const getData = async () => {
     await GlobalAPI.get()
       .then(res => {
         setCountriesStats(res.Countries);
+        setFilteredTableData(res.Countries);
       })
   };
 
   useEffect(() => {
     getData();
   }, [])
-
-  const [filteredTableData, setFilteredTableData] = useState(countriesStats);
 
   const tableColumns = [
     { key: "Country", footer: "Totals" },
