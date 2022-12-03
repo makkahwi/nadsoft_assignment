@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function CountryDetails() {
+export default function CountryDetails({ data }) {
   return (
     <>
       Country Details
