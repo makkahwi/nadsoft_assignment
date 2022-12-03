@@ -1,6 +1,7 @@
 import React from "react"
 import Typography from "../../Components/Base/Typography";
 import PageTitle from "../../Components/PageTitle";
+import DeveloperNotes from "./DeveloperNotes";
 import TaskDescription from "./TaskDescription";
 
 export default function About() {
@@ -13,6 +14,8 @@ export default function About() {
       </Typography>
 
       <TaskDescription />
+
+      <DeveloperNotes />
     </>
   )
 };

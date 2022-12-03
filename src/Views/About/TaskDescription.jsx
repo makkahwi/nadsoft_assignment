@@ -1,6 +1,5 @@
-import React from "react"
+import React from "react";
 import Typography from "../../Components/Base/Typography";
-import PageTitle from "../../Components/PageTitle";
 
 export default function TaskDescription() {
   return (
