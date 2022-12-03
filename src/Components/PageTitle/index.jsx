@@ -1,6 +1,6 @@
-import React from "react"
-import Typography from "../Base/Typography";
 import PropTypes from 'prop-types';
+import React from "react";
+import Typography from "../Base/Typography";
 
 export default function PageTitle({ title }) {
   return (

@@ -1,9 +1,8 @@
 import { render } from '@testing-library/react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import { generateTitleOutOfCamelCaseKey } from '../../Helpers/utils';
 import Table from '../Base/Table';
-import PropTypes from 'prop-types';
 
 export default function TableComp({ columns, data = [], onView, className, ...props }) {
   const [sortedData, setSortedData] = useState([]);

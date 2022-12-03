@@ -1,9 +1,8 @@
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, useLocation } from 'react-router-dom';
-
 import Container from '../../Components/Base/Grid/Container';
 import Nav from '../../Components/Base/Nav';
-import routes from "../../Routes"
+import routes from "../../Routes";
 
 export default function Header() {
   const location = useLocation();
