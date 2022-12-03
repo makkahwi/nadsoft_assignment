@@ -1,8 +1,12 @@
 import React from "react"
+import { useState } from "react";
 import Typography from "../../Components/Base/Typography";
 import Table from "../../Components/Table";
+import Form from 'react-bootstrap/Form';
 
 export default function Landing() {
+  const [searchValue, setSearchValue] = useState("");
+
   const testData = [
     {
       "Country": "Jordan",
@@ -30,6 +34,8 @@ export default function Landing() {
     },
   ];
 
+  const [filteredTableData, setFilteredTableData] = useState(testData);
+
   const tableColumns = [
     { key: "Country" },
     { key: "NewConfirmed" },
@@ -40,6 +46,18 @@ export default function Landing() {
     { key: "TotalRecovered" },
     { title: "Last Updated", key: "Date" },
   ];
+
+  const onSearchChange = e => {
+    const { value } = e.target;
+
+    setSearchValue(value);
+
+    value.length ? (
+      setFilteredTableData(testData.filter(record => record.Country.includes(value)))
+    ) : (
+      setFilteredTableData(testData)
+    );
+  };
 
   return (
     <>
@@ -55,9 +73,20 @@ export default function Landing() {
         Latest COVID Statistics
       </Typography>
 
+      <Form.Label>
+        Search by country
+      </Form.Label>
+
+      <Form.Control
+        name="search"
+        type="text"
+        value={searchValue}
+        onChange={onSearchChange}
+      />
+
       <Table
         columns={tableColumns}
-        data={testData}
+        data={filteredTableData}
       />
     </>
   )
