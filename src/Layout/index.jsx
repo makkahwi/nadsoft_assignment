@@ -1,4 +1,5 @@
 import React, { Suspense } from "react"
+import Container from 'react-bootstrap/Container';
 import { Navigate, Route, Routes } from 'react-router-dom'
 
 import routes from "../Routes"
@@ -9,23 +10,27 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <Suspense fallback={"Loading"}>
-        <Routes>
-          {routes?.map((route, i) => {
-            return (
-              <Route
-                key={i}
-                path={route.path}
-                exact={route.exact}
-                name={route.name}
-                element={<route.element />}
-              />
-            )
-          })}
 
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </Suspense>
+      <Container className="py-5">
+        <Suspense fallback={"Loading"}>
+          <Routes>
+            {routes?.map((route, i) => {
+              return (
+                <Route
+                  key={i}
+                  path={route.path}
+                  exact={route.exact}
+                  name={route.name}
+                  element={<route.element />}
+                />
+              )
+            })}
+
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </Suspense>
+      </Container>
+
       <Footer />
     </>
   )
