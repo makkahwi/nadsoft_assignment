@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { generateTitleOutOfCamelCaseKey } from '../../Helpers/utils';
 import Table from '../Base/Table';
 
-export default function TableComp({ columns, data, onView, className, ...props }) {
+export default function TableComp({ columns, data = [], onView, className, ...props }) {
   const [sortedData, setSortedData] = useState([]);
   const [sortingKey, setSortingKey] = useState({});
   const generateColumnTotal = key => sortedData?.reduce((final, record) => final += record[key], 0);
