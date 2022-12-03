@@ -2,6 +2,14 @@
   "name": "nadsoft",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Suhaib Ahmad",
+    "url": "https://Suhaib.dev",
+    "github": "https://github.com/makkahwi",
+    "facebook": "https://facebook.com/makkahwi",
+    "linkedin": "https://linkedin.com/in/makkahwi",
+    "email": "SuhaibAhmadAi@hotmail.com"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
