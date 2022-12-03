@@ -2,9 +2,23 @@ import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Typography from "../../Components/Base/Typography";
 import Table from "../../Components/Table";
+import GlobalAPI from "../../API/global";
+import { useEffect } from "react";
 
 export default function PerCountryStats({ setCountry }) {
   const [searchValue, setSearchValue] = useState("");
+  const [countriesStats, setCountriesStats] = useState([]);
+
+  const getData = async () => {
+    await GlobalAPI.get()
+      .then(res => {
+        setCountriesStats(res.Countries);
+      })
+  };
+
+  useEffect(() => {
+    getData();
+  }, [])
 
   const countriesTestData = [
     {
@@ -33,7 +47,7 @@ export default function PerCountryStats({ setCountry }) {
     },
   ];
 
-  const [filteredTableData, setFilteredTableData] = useState(countriesTestData);
+  const [filteredTableData, setFilteredTableData] = useState(countriesStats);
 
   const tableColumns = [
     { key: "Country", footer: "Totals" },
@@ -49,9 +63,9 @@ export default function PerCountryStats({ setCountry }) {
     setSearchValue(value);
 
     value.length ? (
-      setFilteredTableData(countriesTestData.filter(record => record.Country.toUpperCase().includes(value.toUpperCase())))
+      setFilteredTableData(countriesStats.filter(record => record.Country.toUpperCase().includes(value.toUpperCase())))
     ) : (
-      setFilteredTableData(countriesTestData)
+      setFilteredTableData(countriesStats)
     );
   };
 
