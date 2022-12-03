@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { generateTitleOutOfCamelCaseKey } from '../../Helpers/utils';
 import Table from '../Base/Table';
+import PropTypes from 'prop-types';
 
 export default function TableComp({ columns, data = [], onView, className, ...props }) {
   const [sortedData, setSortedData] = useState([]);
@@ -108,3 +109,10 @@ export default function TableComp({ columns, data = [], onView, className, ...pr
     </Table>
   );
 }
+
+TableComp.propTypes = {
+  columns: PropTypes.array.isRequired,
+  data: PropTypes.array.isRequired,
+  onView: PropTypes.func,
+  className: PropTypes.string,
+};
