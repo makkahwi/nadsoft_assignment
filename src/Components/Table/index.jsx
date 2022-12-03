@@ -1,25 +1,26 @@
 import { render } from '@testing-library/react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { generateTitleOutOfCamelCaseKey } from '../../Helpers/utils';
 import Table from '../Base/Table';
 
 export default function TableComp({ columns, data, onView, className, ...props }) {
-  const generateColumnTotal = key => data?.reduce((final, record) => final += record[key], 0);
-  const [sortedData, setSortedData] = useState(data || []);
+  const [sortedData, setSortedData] = useState([]);
   const [sortingKey, setSortingKey] = useState({});
+  const generateColumnTotal = key => sortedData?.reduce((final, record) => final += record[key], 0);
 
   const onSorting = (column) => {
-    const unsortedData = { ...data };
+    const unsortedData = [...data];
 
     if (sortingKey.key === column && sortingKey.order === "desc") {
       setSortingKey({});
-      setSortedData({ ...unsortedData });
+      setSortedData([...unsortedData]);
     } else if (sortingKey.key === column && sortingKey.order === "asc") {
       setSortingKey(current => ({ ...current, order: "desc" }));
-      setSortedData({ ...unsortedData.sort((a, b) => a[column] - b[column]) });
+      setSortedData([...unsortedData.sort((a, b) => a[column] - b[column])]);
     } else {
       setSortingKey({ key: column, order: "asc" });
-      setSortedData({ ...unsortedData.sort((a, b) => b[column] - a[column]) });
+      setSortedData([...unsortedData.sort((a, b) => b[column] - a[column])]);
     }
   };
 
@@ -34,6 +35,8 @@ export default function TableComp({ columns, data, onView, className, ...props }
       return "\u2194"
     }
   };
+
+  useEffect(() => setSortedData([...data]), [data])
 
   return (
     <Table striped bordered hover responsive className={`my-3 text-center ${className}`} {...props}>
