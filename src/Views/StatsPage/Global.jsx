@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import DataAPI from "../../API/summary";
 import Col from "../../Components/Base/Grid/Col";
 import Container from "../../Components/Base/Grid/Container";
 import Row from "../../Components/Base/Grid/Row";
 import Typography from "../../Components/Base/Typography";
-import DataAPI from "../../API/summary";
 import { generateTitleOutOfCamelCaseKey } from "../../Helpers/utils";
 
 export default function GlobalStats() {

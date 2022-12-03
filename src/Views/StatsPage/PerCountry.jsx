@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from "react";
 import Form from 'react-bootstrap/Form';
+import DataAPI from "../../API/summary";
 import Typography from "../../Components/Base/Typography";
 import Table from "../../Components/Table";
-import DataAPI from "../../API/summary";
-import { useEffect } from "react";
-import PropTypes from 'prop-types';
 
 export default function PerCountryStats({ setCountry }) {
   const [searchValue, setSearchValue] = useState("");

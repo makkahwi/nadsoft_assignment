@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CountriesList from "../StatsPage";
 import CountryDetails from "../CountryDetails";
+import CountriesList from "../StatsPage";
 
 export default function Landing() {
   const [country, setCountry] = useState({});

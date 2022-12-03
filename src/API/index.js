@@ -1,5 +1,5 @@
 import axios from "axios";
-import { countriesTestData, globalTestData } from "../Helpers/mockData"
+import { countriesTestData, globalTestData } from "../Helpers/mockData";
 
 export const baseURL = process.env.REACT_APP_BACKEND_URL || "https://api.covid19api.com";
 
