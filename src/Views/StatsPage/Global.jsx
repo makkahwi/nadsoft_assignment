@@ -4,14 +4,14 @@ import Col from "../../Components/Base/Grid/Col";
 import Container from "../../Components/Base/Grid/Container";
 import Row from "../../Components/Base/Grid/Row";
 import Typography from "../../Components/Base/Typography";
-import GlobalAPI from "../../API/global";
+import DataAPI from "../../API/summary";
 import { generateTitleOutOfCamelCaseKey } from "../../Helpers/utils";
 
 export default function GlobalStats() {
   const [globaStats, setGlobaStats] = useState({});
 
   const getData = async () => {
-    await GlobalAPI.get()
+    await DataAPI.get()
       .then(res => {
         setGlobaStats(res.Global);
       })

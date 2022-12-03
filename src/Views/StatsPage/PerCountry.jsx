@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Typography from "../../Components/Base/Typography";
 import Table from "../../Components/Table";
-import GlobalAPI from "../../API/global";
+import DataAPI from "../../API/summary";
 import { useEffect } from "react";
 
 export default function PerCountryStats({ setCountry }) {
@@ -11,7 +11,7 @@ export default function PerCountryStats({ setCountry }) {
   const [filteredTableData, setFilteredTableData] = useState([]);
 
   const getData = async () => {
-    await GlobalAPI.get()
+    await DataAPI.get()
       .then(res => {
         setCountriesStats(res.Countries);
         setFilteredTableData(res.Countries);
