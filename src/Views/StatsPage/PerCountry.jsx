@@ -24,9 +24,9 @@ export default function PerCountryStats({ setCountry }) {
 
   const tableColumns = [
     { key: "Country", footer: "Totals" },
-    { key: "TotalConfirmed", generateTotal: true },
-    { key: "TotalDeaths", generateTotal: true },
-    { key: "TotalRecovered", generateTotal: true },
+    { key: "TotalConfirmed", generateTotal: true, sortable: true },
+    { key: "TotalDeaths", generateTotal: true, sortable: true },
+    { key: "TotalRecovered", generateTotal: true, sortable: true },
     { title: "Last Updated", key: "Date" },
   ];
 
