@@ -21,15 +21,6 @@ export default function GlobalStats() {
     getData();
   }, [])
 
-  const globalTestData = {
-    "NewConfirmed": 100282,
-    "TotalConfirmed": 1162857,
-    "NewDeaths": 5658,
-    "TotalDeaths": 63263,
-    "NewRecovered": 15405,
-    "TotalRecovered": 230845
-  };
-
   return (
     <div className="py-4">
       <Typography size={6}>
