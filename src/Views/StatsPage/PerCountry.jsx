@@ -36,7 +36,7 @@ export default function PerCountryStats({ setCountry }) {
     setSearchValue(value);
 
     value.length ? (
-      setFilteredTableData(countriesStats.filter(record => record.Country.toUpperCase().includes(value.toUpperCase())))
+      setFilteredTableData(countriesStats?.filter(record => record.Country.toUpperCase().includes(value.toUpperCase())))
     ) : (
       setFilteredTableData(countriesStats)
     );
