@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function Typography({ size, children, ...props }) {
   const renderText = () => {
     switch (size) {
@@ -44,4 +46,8 @@ export default function Typography({ size, children, ...props }) {
       {renderText()}
     </div>
   )
+};
+
+Typography.propTypes = {
+  size: PropTypes.number
 };
