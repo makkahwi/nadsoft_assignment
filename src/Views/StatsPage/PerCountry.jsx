@@ -37,11 +37,8 @@ export default function PerCountryStats({ setCountry }) {
 
   const tableColumns = [
     { key: "Country" },
-    { key: "NewConfirmed" },
     { key: "TotalConfirmed" },
-    { key: "NewDeaths" },
     { key: "TotalDeaths" },
-    { key: "NewRecovered" },
     { key: "TotalRecovered" },
     { title: "Last Updated", key: "Date" },
   ];
