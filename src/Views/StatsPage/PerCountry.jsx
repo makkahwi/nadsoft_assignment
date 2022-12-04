@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import DataAPI from "../../API/summary";
 import FormControl from "../../Components/Base/Form/FormControl";
 import FormLabel from "../../Components/Base/Form/FormLabel";
+import Col from '../../Components/Base/Grid/Col';
+import Row from '../../Components/Base/Grid/Row';
 import Typography from "../../Components/Base/Typography";
 import Table from "../../Components/Table";
 
@@ -53,16 +55,20 @@ export default function PerCountryStats({ setCountry }) {
         Per Country
       </Typography>
 
-      <FormLabel>
-        Search by country
-      </FormLabel>
+      <Row>
+        <Col md={4}>
+          <FormLabel>
+            Search by country
+          </FormLabel>
 
-      <FormControl
-        name="search"
-        type="text"
-        value={searchValue}
-        onChange={onSearchChange}
-      />
+          <FormControl
+            name="search"
+            type="text"
+            value={searchValue}
+            onChange={onSearchChange}
+          />
+        </Col>
+      </Row>
 
       <Table
         columns={tableColumns}
