@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from "react";
-import Form from 'react-bootstrap/Form';
 import DataAPI from "../../API/summary";
+import FormControl from "../../Components/Base/Form/FormControl";
+import FormLabel from "../../Components/Base/Form/FormLabel";
 import Typography from "../../Components/Base/Typography";
 import Table from "../../Components/Table";
 
@@ -52,11 +53,11 @@ export default function PerCountryStats({ setCountry }) {
         Per Country
       </Typography>
 
-      <Form.Label>
+      <FormLabel>
         Search by country
-      </Form.Label>
+      </FormLabel>
 
-      <Form.Control
+      <FormControl
         name="search"
         type="text"
         value={searchValue}
