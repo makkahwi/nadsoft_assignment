@@ -1,7 +1,6 @@
 import moment from "moment";
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from "react";
-import DataAPI from "../../API/summary";
 import FormControl from "../../Components/Base/Form/FormControl";
 import FormLabel from "../../Components/Base/Form/FormLabel";
 import Col from '../../Components/Base/Grid/Col';
@@ -10,22 +9,15 @@ import Typography from "../../Components/Base/Typography";
 import Table from "../../Components/Table";
 import { dateFormat } from '../../Helpers/utils';
 
-export default function PerCountryStats({ setCountry }) {
+export default function PerCountryStats({ data, setCountry }) {
   const [searchValue, setSearchValue] = useState("");
   const [countriesStats, setCountriesStats] = useState([]);
   const [filteredTableData, setFilteredTableData] = useState([]);
 
-  const getData = async () => {
-    await DataAPI.get()
-      .then(res => {
-        setCountriesStats(res.Countries);
-        setFilteredTableData(res.Countries);
-      })
-  };
-
   useEffect(() => {
-    getData();
-  }, [])
+    setCountriesStats(data.Countries)
+    setFilteredTableData(data.Countries);
+  }, [data])
 
   const tableColumns = [
     { key: "Country", footer: "Totals" },
