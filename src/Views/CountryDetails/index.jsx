@@ -4,7 +4,7 @@ import Col from "../../Components/Base/Grid/Col"
 import Row from "../../Components/Base/Grid/Row"
 import Typography from "../../Components/Base/Typography"
 import PageTitle from "../../Components/PageTitle"
-import { generateTitleOutOfCamelCaseKey } from "../../Helpers/utils"
+import { formatData, generateTitleOutOfCamelCaseKey } from "../../Helpers/utils"
 
 export default function CountryDetails({ data, setCountry }) {
   const toDisplayData = [
@@ -37,7 +37,7 @@ export default function CountryDetails({ data, setCountry }) {
         {Object.keys(data)?.filter(key => toDisplayData.includes(key))?.map((key, i) => (
           <Col key={i} lg={3} xs={6}>
             <Typography size={5}>
-              {generateTitleOutOfCamelCaseKey(key)}: {data[key]}
+              {generateTitleOutOfCamelCaseKey(key)}: {formatData({ data, key })}
             </Typography>
           </Col>
         ))}

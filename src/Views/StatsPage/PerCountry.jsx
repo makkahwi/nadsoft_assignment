@@ -1,3 +1,4 @@
+import moment from "moment";
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from "react";
 import DataAPI from "../../API/summary";
@@ -7,6 +8,7 @@ import Col from '../../Components/Base/Grid/Col';
 import Row from '../../Components/Base/Grid/Row';
 import Typography from "../../Components/Base/Typography";
 import Table from "../../Components/Table";
+import { dateFormat } from '../../Helpers/utils';
 
 export default function PerCountryStats({ setCountry }) {
   const [searchValue, setSearchValue] = useState("");
@@ -30,7 +32,7 @@ export default function PerCountryStats({ setCountry }) {
     { key: "TotalConfirmed", generateTotal: true, sortable: true },
     { key: "TotalDeaths", generateTotal: true, sortable: true },
     { key: "TotalRecovered", generateTotal: true, sortable: true },
-    { title: "Last Updated", key: "Date" },
+    { title: "Last Updated", key: "Date", render: row => moment(row.Date).format(dateFormat) },
   ];
 
   const onSearchChange = e => {
