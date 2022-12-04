@@ -3,6 +3,7 @@ import Typography from "../../Components/Base/Typography";
 import PageTitle from "../../Components/PageTitle";
 import DeveloperNotes from "./DeveloperNotes";
 import TaskDescription from "./TaskDescription";
+import PossibleEnhancements from "./PossibleEnhancements";
 
 export default function About() {
   return (
@@ -16,6 +17,8 @@ export default function About() {
       <TaskDescription />
 
       <DeveloperNotes />
+
+      <PossibleEnhancements />
     </>
   )
 };
