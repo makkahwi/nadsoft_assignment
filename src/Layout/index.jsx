@@ -12,7 +12,7 @@ export default function Layout() {
     <>
       <Header />
 
-      <Container className="py-5">
+      <Container className="py-5 mt-5">
         <Suspense fallback={<LoadingIndicator />}>
           <Routes>
             {routes?.map((route, i) => {

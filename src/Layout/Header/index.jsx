@@ -13,7 +13,7 @@ export default function Header() {
   const isCurrent = route => route.path === location.pathname;
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
       <Container>
         <NavbarBrand className="my-2">
           Covid Statistics

@@ -3,7 +3,7 @@ import Container from '../../Components/Base/Grid/Container';
 
 export default function Footer() {
   return (
-    <Navbar bg="light" fixed="bottom">
+    <Navbar bg="light" >
       <Container className="mx-5 my-3 justify-content-center">
         All Rights Reserved For
         <a href="https://suhaib.dev/" target="_blank" rel="noreferrer" className="mx-1">Suhaib Ahmad</a>,
