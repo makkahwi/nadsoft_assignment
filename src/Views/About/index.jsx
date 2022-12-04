@@ -14,6 +14,12 @@ export default function About() {
         This project is a technical assignment of NadSoft for the application of "Senior React.Js Developer" position
       </Typography>
 
+      <Typography size={6} className="pb-3">
+        <a href="https://github.com/users/makkahwi/projects/3/views/1" target="_blank" rel="noreferrer" className="text-decoration-underline text-secondary" role="button">
+          Project Planning
+        </a>
+      </Typography>
+
       <TaskDescription />
 
       <DeveloperNotes />

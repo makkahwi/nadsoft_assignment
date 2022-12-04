@@ -19,6 +19,10 @@ To solve the assignment, use the API from here: <https://cutt.ly/MLH5xKR>
 When the assessment is completed, please push it with the source code to GitHub.
 (Please make sure your repository is public).
 
+## Project Planning
+
+[Here](https://github.com/users/makkahwi/projects/3/views/1)
+
 ## Developer Notes
 
 Libraries Used: axios, bootstrap, moment, react, react-router-dom
