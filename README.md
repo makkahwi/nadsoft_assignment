@@ -29,3 +29,5 @@ Base Components Purpose: For the purpose of have cases like the need to alter th
 
 - Table Pagination
 - Flip Table To Cards On Small Views
+- Statistics Card UI
+- API Loading Indicator

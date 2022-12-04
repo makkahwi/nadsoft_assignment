@@ -17,6 +17,14 @@ export default function PossibleEnhancements() {
           <li>
             Flip Table To Cards On Small Views
           </li>
+
+          <li>
+            Statistics Card UI
+          </li>
+
+          <li>
+            API Loading Indicator
+          </li>
         </ul>
       </Typography>
     </>
