@@ -25,6 +25,10 @@ export default function PossibleEnhancements() {
           <li>
             API Loading Indicator
           </li>
+
+          <li>
+            Alert Msgs On API Data Retrieve Failure
+          </li>
         </ul>
       </Typography>
     </>

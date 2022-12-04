@@ -25,9 +25,8 @@ When the assessment is completed, please push it with the source code to GitHub.
 
 ## Developer Notes
 
-Libraries Used: axios, bootstrap, moment, react, react-router-dom
-
-Base Components Purpose: For the purpose of have cases like the need to alter the whole componets libraty (react-boostrap in this case), all library componets are imported in "Base" compoents, and those became the base of UI codes.
+- Libraries Used: axios, bootstrap, moment, react, react-router-dom
+- Base Components Purpose: For the purpose of have cases like the need to alter the whole componets libraty (react-boostrap in this case), all library componets are imported in "Base" compoents, and those became the base of UI codes.
 
 ## Possible Enhancements
 
@@ -35,3 +34,4 @@ Base Components Purpose: For the purpose of have cases like the need to alter th
 - Flip Table To Cards On Small Views
 - Statistics Card UI
 - API Loading Indicator
+- Alert Msgs On API Data Retrieve Failure
