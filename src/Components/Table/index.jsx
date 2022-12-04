@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { generateTitleOutOfCamelCaseKey } from '../../Helpers/utils';
@@ -68,7 +67,7 @@ export default function TableComp({ columns, data = [], onView, className, ...pr
             <tr key={i}>
               {columns?.map((column, y) => (
                 <td key={y}>
-                  {column?.render ? render(record) : record[column?.key]}
+                  {column?.render ? column.render(record) : record[column?.key]}
                 </td>
               ))}
 

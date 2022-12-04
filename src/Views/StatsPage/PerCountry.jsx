@@ -1,33 +1,30 @@
+import moment from "moment";
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from "react";
-import Form from 'react-bootstrap/Form';
-import DataAPI from "../../API/summary";
+import FormControl from "../../Components/Base/Form/FormControl";
+import FormLabel from "../../Components/Base/Form/FormLabel";
+import Col from '../../Components/Base/Grid/Col';
+import Row from '../../Components/Base/Grid/Row';
 import Typography from "../../Components/Base/Typography";
 import Table from "../../Components/Table";
+import { dateFormat } from '../../Helpers/utils';
 
-export default function PerCountryStats({ setCountry }) {
+export default function PerCountryStats({ data, setCountry }) {
   const [searchValue, setSearchValue] = useState("");
   const [countriesStats, setCountriesStats] = useState([]);
   const [filteredTableData, setFilteredTableData] = useState([]);
 
-  const getData = async () => {
-    await DataAPI.get()
-      .then(res => {
-        setCountriesStats(res.Countries);
-        setFilteredTableData(res.Countries);
-      })
-  };
-
   useEffect(() => {
-    getData();
-  }, [])
+    setCountriesStats(data.Countries)
+    setFilteredTableData(data.Countries);
+  }, [data])
 
   const tableColumns = [
     { key: "Country", footer: "Totals" },
     { key: "TotalConfirmed", generateTotal: true, sortable: true },
     { key: "TotalDeaths", generateTotal: true, sortable: true },
     { key: "TotalRecovered", generateTotal: true, sortable: true },
-    { title: "Last Updated", key: "Date" },
+    { title: "Last Updated", key: "Date", render: row => moment(row.Date).format(dateFormat) },
   ];
 
   const onSearchChange = e => {
@@ -52,16 +49,20 @@ export default function PerCountryStats({ setCountry }) {
         Per Country
       </Typography>
 
-      <Form.Label>
-        Search by country
-      </Form.Label>
+      <Row>
+        <Col md={4}>
+          <FormLabel>
+            Search by country
+          </FormLabel>
 
-      <Form.Control
-        name="search"
-        type="text"
-        value={searchValue}
-        onChange={onSearchChange}
-      />
+          <FormControl
+            name="search"
+            type="text"
+            value={searchValue}
+            onChange={onSearchChange}
+          />
+        </Col>
+      </Row>
 
       <Table
         columns={tableColumns}

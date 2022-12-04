@@ -1,11 +1,25 @@
 import PropTypes from 'prop-types';
-import React from "react";
+import React, { useEffect, useState } from "react";
+import DataAPI from "../../API/summary";
 import Typography from "../../Components/Base/Typography";
 import PageTitle from "../../Components/PageTitle";
 import GlobalStats from "./Global";
 import PerCountryStats from "./PerCountry";
 
 export default function CountriesList({ setCountry }) {
+  const [data, setData] = useState({});
+
+  const getData = async () => {
+    await DataAPI.get()
+      .then(res => {
+        setData(res);
+      })
+  };
+
+  useEffect(() => {
+    getData();
+  }, [])
+
   return (
     <>
       <PageTitle title={"Welcome"} />
@@ -18,9 +32,9 @@ export default function CountriesList({ setCountry }) {
         Latest COVID Statistics
       </Typography>
 
-      <GlobalStats />
+      <GlobalStats data={data} />
 
-      <PerCountryStats setCountry={setCountry} />
+      <PerCountryStats data={data} setCountry={setCountry} />
     </>
   )
 };
